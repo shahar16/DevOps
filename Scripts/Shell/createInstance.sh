@@ -32,7 +32,7 @@ echo "============ instance name: ${slaveName} ============"
 echo "[STEP 1] Create new instance."
 # gcloud compute instances create ${slaveName} --image-family ubuntu-1604-lts  --image-project ubuntu-os-cloud --machine-type=n1-standard-4 --create-disk size=32,type=pd-standard --tags=http-server,https-server --zone=${zone}
 echo "Going to sleep for 1 minute before step 2."
-sleep 60
+# sleep 60
 
 echo "[STEP 2] Enable SSH connection to the machines."
 # gcloud compute ssh --zone=${zone} ${slaveName} --command 'sudo sed -i -e "s|PasswordAuthentication no|PasswordAuthentication yes|g" /etc/ssh/sshd_config'
@@ -43,7 +43,7 @@ echo "[STEP 3] Creating shahar user on instance."
 # gcloud compute ssh --zone=${zone} ${slaveName} --command 'sudo systemctl reload sshd'
 
 echo "[STEP 4] Prepare machine."
-gcloud compute ssh --zone=${zone} ${slaveName} --command 'git clone https://github.com/shahar16/DevOps.git'
+# gcloud compute ssh --zone=${zone} ${slaveName} --command 'git clone https://github.com/shahar16/DevOps.git'
 gcloud compute ssh --zone=${zone} ${slaveName} --command './DevOps/Scripts/Shell/prepareMachine.sh'
 
 echo "[STEP 4] Create node in Jenkins."
