@@ -1,0 +1,21 @@
+<slave>
+    <name>nodeNamePlaceHolder</name>
+    <description/>
+    <remoteFS>/home/shahar</remoteFS>
+    <numExecutors>1</numExecutors>
+    <mode>NORMAL</mode>
+    <retentionStrategy class="hudson.slaves.RetentionStrategy$Always"/>
+    <launcher class="hudson.plugins.sshslaves.SSHLauncher" plugin="ssh-slaves@1.30.2">
+        <host>ipPlaceHolder</host>
+        <port>22</port>
+        <credentialsId>shahar</credentialsId>
+        <launchTimeoutSeconds>210</launchTimeoutSeconds>
+        <maxNumRetries>10</maxNumRetries>
+        <retryWaitTime>15</retryWaitTime>
+        <sshHostKeyVerificationStrategy class="hudson.plugins.sshslaves.verifiers.NonVerifyingKeyVerificationStrategy"/>
+        <tcpNoDelay>true</tcpNoDelay>
+    </launcher>
+    <label>generalSlave</label>
+    <nodeProperties/>
+    <userId>shaharyi</userId>
+</slave>
